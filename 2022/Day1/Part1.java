@@ -7,15 +7,19 @@ public class Part1 {
       	FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
 	    String line;
-        int count = 0;
-        int track;
-        line = br.readLine();
-        track = Integer.parseInt(line);
+        int cal = 0;
+        int curr = 0;
 		while ((line = br.readLine()) != null) {
-            if (Integer.parseInt(line) > track)
-                count++;
-            track = Integer.parseInt(line);
+            if(line.equals("")) {
+                if (curr > cal) {
+                    cal = curr;
+                }
+                curr = 0;
+            }
+            else {
+                curr += Integer.parseInt(line);
+            }
         }
-        System.out.println(count);
+        System.out.println(cal);
     }
 }
