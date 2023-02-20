@@ -1,6 +1,9 @@
 import java.io.*;
 import java.util.*;
 
+// Problem found //
+// directories can repeat name if inside diferent directories //
+
 public class Part1 {
     public static void main(String[] args) throws Exception {
         File file = new File("Day7.txt");
