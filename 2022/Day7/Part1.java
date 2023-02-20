@@ -20,41 +20,54 @@ public class Part1 {
                     String a = dir.pop();
                     int i = sizes.pop();
                     direct.put(a, i);
-                    sizes.push(sizes.pop() + i);
+                    int j = sizes.pop();
+                    sizes.push(j + i);
 
                 } else {
+
                     dir.push(line.substring(5));
                     sizes.push(0);
+
                 }
 
-            } else if(line.charAt(0) != '$' && line.charAt(0) != 'd') {
+            } else if (line.charAt(0) != '$' && line.charAt(0) != 'd') {
+
                 String[] s = line.split(" ");
-                sizes.push(sizes.pop() + Integer.parseInt(s[0]));
+                int j = sizes.pop();
+                sizes.push(j + Integer.parseInt(s[0]));
                 
             }
         }
         
         while(!dir.isEmpty()) {
+
             String a = dir.pop();
             int i = sizes.pop();
             direct.put(a, i);
+
             if(!dir.isEmpty()) {
-                sizes.push(sizes.pop() + i);
+
+                int j = sizes.pop();
+                sizes.push(j + i);
+
             }
+
         }
 
         Integer counter = 0;
 
-        // for(String s:direct.keySet()) {
+        // for(String s : direct.keySet()) {
         //     System.out.print(s);
         //     System.out.print(" ");
         //     System.out.println(direct.get(s));
         // }
 
-        for(Integer a:direct.values()) {
+        for(Integer a : direct.values()) {
+
             if(a <= 100000) {
                 counter += a;
             }
+            
         }
 
         System.out.println(counter);
